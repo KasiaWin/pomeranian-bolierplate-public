@@ -8,6 +8,7 @@ import './style.css';
 export function Events() {
   const [text, setText] = useState('Nie kliknięto we mnie');
   const [counter, setCounter] = useState(0);
+  const [inputText, setInputText] = useState('');
   function handleOnClick() {
     // setCounter(counter + 1);
     setText('Kliknięto we mnie');
@@ -18,14 +19,25 @@ export function Events() {
       setCounter((counter) => counter + 1);
     }
   }
+  function handleOnChange(event) {
+    console.log(event.target.value);
+    setInputText(event.target.value);
+  }
+
   return (
     <div>
       <h2>Cześć!</h2>
-
-      <button onClick={handleOnClick}>
+      <input
+        className="events-input"
+        type="text"
+        value={inputText}
+        onChange={(event) => handleOnChange(event)}
+      />
+      <button className="events-btn" onClick={handleOnClick}>
         <span>{text}</span> {counter > 0 && <span>{counter} razy</span>}
       </button>
     </div>
   );
+
+  // zmienna jest zawsze w nawiasach wąsatych
 }
-// zmienna jest zawsze w nawiasach wąsatych
