@@ -6,6 +6,8 @@ import { blockRouterMetaData as blockRouterMetaDataOpacity } from './Opacity/rou
 import { blockRouterMetaData as blockRouterMetaDataBackground } from './Background/router-data';
 import { blockRouterMetaData as blockRouterMetaDataVideoAudioIframe } from './VideoAudioIframe/router-data';
 import { blockRouterMetaData as blockRouterDataVideoBoxModel } from '../BoxModel/router-data';
+import { blockRouterMetaData as blockRouterDataTables } from './Tables/router-data';
+import { blockRouterMetaData as blockRouterDataTableTennis } from './TableTennis/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaData121220231,
@@ -14,5 +16,7 @@ export const blockRouterMetaData = [
   blockRouterMetaDataBackground,
   blockRouterMetaDataVideoAudioIframe,
   blockRouterDataVideoBoxModel,
+  blockRouterDataTables,
+  blockRouterDataTableTennis,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
