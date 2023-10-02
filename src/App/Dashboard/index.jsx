@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 import { PersonalCardIcon } from '../Components/Icons/PersonalCardIcon';
 import { EditIcon } from '../Components/Icons/EditIcon';
+import { BlogIcon } from '../Components/Icons/BlogIcon';
+import { LinearIcon } from '../Components/Icons/LinearIcon';
+import { FaqIcon } from '../Components/Icons/FaqIcon';
 
 const dashboardCards = [
   {
@@ -39,7 +42,7 @@ const dashboardCards = [
 export const Dashboard = () => {
   return (
     <div className="dashboard">
-      <h1 className="dashboard-greeting">Hej, tu Szczepan 👋</h1>
+      <h1 className="dashboard-greeting">Hej, tu Katarzyna 👋</h1>
       <p className="dashboard-description">
         Poniżej znajdziesz najważniejsze informacje na temat mojej działalności.
       </p>
