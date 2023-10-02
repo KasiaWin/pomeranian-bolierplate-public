@@ -8,6 +8,12 @@
     margin: 80px 80px 50px 50px;
 }
 
+figure {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
 .p {
     font-family: MADE TOMMY;
     font-size: 18px;
@@ -114,14 +120,34 @@ section {
     font-size: 16px;
     font-weight: 400;
   }
-  @keyframes horizontal-shaking {
-    0% { transform: translateX(0) }
-    25% { transform: translateX(5px) }
-    50% { transform: translateX(-5px) }
-    75% { transform: translateX(5px) }
-    100% { transform: translateX(0) }
+  @keyframes shakes {
+    0% {
+      transform: rotate(0);
+    }
+    20% {
+      transform: rotate(20deg);
+    }
+    30% {
+      transform: rotate(-20deg);
+    }
+    40% {
+      transform: rotate(20deg);
+    }
+    50% {
+      transform: rotate(-20deg);
+    }
+    60% {
+      transform: rotate(20deg);
+    }
+    70% {
+      transform: rotate(-20deg);
+    }
+    80% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(0);
+    }
    }
   
-.figure {
-    animation: horizontal-shaking;
-}
+  
