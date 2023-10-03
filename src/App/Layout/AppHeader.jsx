@@ -21,7 +21,7 @@ export function AppHeader() {
         {/* <HeaderMenu /> */}
         <SettingIcon />
         <ElipseIcon />
-        <p>Wojciech</p>
+        <p>Katarzyna</p>
         <p>kursant</p>
         <ArrowIcon />
       </div>

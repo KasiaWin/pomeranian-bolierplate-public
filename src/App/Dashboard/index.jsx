@@ -5,6 +5,7 @@ import { EditIcon } from '../Components/Icons/EditIcon';
 import { BlogIcon } from '../Components/Icons/BlogIcon';
 import { LinearIcon } from '../Components/Icons/LinearIcon';
 import { FaqIcon } from '../Components/Icons/FaqIcon';
+import { ElipseIcon } from '../Components/Icons/ElipseIcon';
 
 const dashboardCards = [
   {
@@ -58,7 +59,17 @@ export const Dashboard = () => {
           );
         })}
       </div>
-      <aside className="dashboard-aside"></aside>
+      <aside className="dashboard-aside">
+        <div className="dashboard-aside">
+          <ElipseIcon />
+          <h2>Katarzyna Winklas</h2>
+          <p>Gdynia</p>
+          <p>email:</p>
+          <p>dziubek@gmail.com</p>
+          <p>telefon</p>
+          <p>888 888 888</p>
+        </div>
+      </aside>
     </div>
   );
 };

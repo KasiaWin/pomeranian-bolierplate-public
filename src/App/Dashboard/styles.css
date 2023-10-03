@@ -1,3 +1,4 @@
+
 .dashboard {
     font-family: 'Poppins', sans-serif;
     display: grid;
@@ -67,6 +68,37 @@
           
           .dashboard-aside {
             grid-area: 1 / 2 / 4 / 3;
-            min-height: 800px;
-            background: gray;
+            height: 360px;
+            background: #fff;
+            width: 334px;
+            flex-shrink: 0;
+            border-radius: 10px;
+
+
+          }
+          .dashboard-aside {
+            display:flex;
+            flex-direction: column;
+            justify-content: flex-start;
+          }
+           .dashboard-aside:hover {
+              box-shadow: 0px 2px 26px -5px rgba(254, 55, 86, 0.54);
+            }
+            
+          .dashboard-aside h2{
+            color: var(--secondary-secondary, #23213D);
+            font-family: Poppins;
+            font-size: 22px;
+            font-weight: 500;
+            line-height:normal;
+            .dashboard-aside p{
+            color: #000;
+              font-size: 14px;
+              font-family: Poppins;
+              font-style: normal;
+              font-weight: 400;
+              opacity: 0,4;
+
+            }
+           
           }
