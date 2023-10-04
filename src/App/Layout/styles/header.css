@@ -21,6 +21,7 @@ header.header-title {
   font-weight: normal;
 }
 
+
 .header-menu-user > p:last-child{
   color: var(--color-lightgrey);
   font-family: Poppins;
@@ -28,7 +29,5 @@ header.header-title {
   font-style: normal;
   font-weight: 400; 
   line-height: normal;
-  }
-.ArrowIcon {
-  color: #4B5563;
+
 }
