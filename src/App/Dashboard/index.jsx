@@ -64,9 +64,8 @@ export const Dashboard = () => {
           <ElipseIcon />
           <h2>Katarzyna Winklas</h2>
           <p>Gdynia</p>
-          <p>email:</p>
-          <p>dziubek@gmail.com</p>
-          <p>telefon</p>
+          <p className="email">email: dziubek@gmail.com</p>
+          <p className="phone">telefon</p>
           <p>888 888 888</p>
         </div>
       </aside>

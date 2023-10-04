@@ -14,15 +14,21 @@ export function AppHeader() {
     //tag jsx -> html
     <header>
       <div className="PomeranianLogo">
-        {/* // component react  */}
+        {/* // component react */}
         <PomeranianLogo />
       </div>
-      <div className="settingIcon">
-        {/* <HeaderMenu /> */}
+
+      <div className="header-menu">
         <SettingIcon />
-        <ElipseIcon />
+      </div>
+      <ElipseIcon />
+
+      {/* <HeaderMenu /> */}
+      <div className="header-menu-user">
         <p>Katarzyna</p>
-        <p>kursant</p>
+        <p>kursantka</p>
+      </div>
+      <div>
         <ArrowIcon />
       </div>
     </header>
