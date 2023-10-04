@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import React from 'react';
 
 import './styles/header.css';
@@ -14,11 +15,26 @@ export function AppHeader() {
     //tag jsx -> html
     <header>
       <div className="PomeranianLogo">
-        {/* // component react  */}
+        {/* // component react */}
         <PomeranianLogo />
       </div>
 
-      <ArrowIcon />
+      <div className="header-menu">
+        <SettingIcon />
+      </div>
+      <ElipseIcon />
+
+      {/* <HeaderMenu /> */}
+      <div className="header-menu-user">
+        <p>Katarzyna</p>
+        <p>kursantka</p>
+      </div>
+      <div>
+        <button onClick={handleClick}>Zaloguj się</button>
+
+        <p>Nie masz konta?</p>
+        <p>Zaloguj się</p>
+      </div>
     </header>
   );
 }

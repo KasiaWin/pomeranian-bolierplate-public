@@ -3,38 +3,50 @@ header {
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
   padding-left: 1.5rem;
   padding-right: 3rem;
   box-shadow: 0px 1px 9px 0px var(--color-grey);
-}
-header > a:first-of-type {
+  }
+  header > a:first-of-type {
   text-decoration: none;
-}
-header.header-title {
+  }
+  .PomeranianLogo {
+  flex-basis: 1500px;
+  }
+  
+  header.header-title {
   color: var(--color-grey);
   font-weight: normal;
-}
-
-.header-menu-user >p{
- margin: 0;
-}
-
-.header-menu-user > p:last-child{
+  }
+  
+  
+  .header-menu-user > p:last-child{
   color: var(--color-lightgrey);
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400; 
+  font-weight: 400;
   line-height: normal;
 
-}
-.settingIcon {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-
+  }
+  .ArrowIcon {
+    display: flex;
+width: 396px;
+height: 211px;
+padding: 8px 0px;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+gap: 6px;
+flex-shrink: 0;
+  }
   
-}
+  .ArrowIcon {
+    border-radius: 4px;
+background: #FFF;
+
+/* XL */
+box-shadow: 0px 65px 30px 0px rgba(0, 0, 0, 0.01), 0px 8px 20px 0px rgba(0, 0, 0, 0.04), 0px 17px 35px 0px rgba(0, 0, 0, 0.05), 0px -4px 26px 0px rgba(0, 0, 0, 0.08);
+  }
