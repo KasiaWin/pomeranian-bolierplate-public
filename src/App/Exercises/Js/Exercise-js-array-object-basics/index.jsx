@@ -1,5 +1,5 @@
 import './styles.css';
-
+import { ArrayMethods } from './ArrayMethods;';
 export function ExerciseJsArrayBasics() {
   //arrays of objects
   const peopleData = [
@@ -116,6 +116,8 @@ export function ExerciseJsArrayBasics() {
           //dot notation/access
           peopleData[0].age
         }
+        Import of ArrayMethods component:
+        <ArrayMethods />{' '}
       </div>
     </div>
   );
