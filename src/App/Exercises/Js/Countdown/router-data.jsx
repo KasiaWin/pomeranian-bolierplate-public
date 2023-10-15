@@ -1,6 +1,6 @@
-import { Countdown } from './index';
+import { JsCountdown } from './index';
 
-export const countdownMetaData = {
+export const jscountdownMetaData = {
   path: 'js-countdown',
 
   date: '12.10.2023',
@@ -9,7 +9,7 @@ export const countdownMetaData = {
 
   blockNo: 21,
 
-  element: <Countdown />,
+  element: <JsCountdown />,
 
-  tags: ['setInterval', 'interval', 'time'],
+  tags: ['setCountdown', 'countdown', 'time'],
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import './styles.css';
 
-export const Countdown = () => {};
+export const JsCountdown = () => {};
 // undefined
 
 const newYearsEve = Date(2023, 11, 31, 0, 0, 0);
