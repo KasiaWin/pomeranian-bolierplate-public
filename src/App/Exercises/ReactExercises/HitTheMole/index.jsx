@@ -48,6 +48,8 @@ export const HitTheMole = () => {
   const [intervalId, setIntervalId] = useState(null);
 
   const handleStartGame = () => {
+    setTime(game_time);
+    setScore(0);
     setIsGameStarted(true);
 
     const intervalId = setInterval(() => {
@@ -126,7 +128,7 @@ export const HitTheMole = () => {
 
       {isGameStarted ? (
         <div>
-          <div>
+          <div className="button-wrapper1">
             {/* CZAS do końca  */}
 
             <div>
@@ -160,7 +162,7 @@ export const HitTheMole = () => {
 
           {/* WIDOK ŁAPANIA KRETA */}
 
-          <div>
+          <div className="game-field">
             {gameFields.map((field) => {
               const isMolePresent = field.id === moleFieldId;
 
@@ -182,7 +184,7 @@ export const HitTheMole = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="button-wrapper">
           {/* CZAS gry */}
 
           <div>
