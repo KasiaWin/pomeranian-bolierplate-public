@@ -1,102 +1,93 @@
-import { useEffect, useState } from 'react';
-
-import molesvg from '../../../Images/mole.svg';
-
 import './styles.css';
+import { useState } from 'react';
 
-const fields = [
-  { id: 1, hasClicked: false },
-  { id: 2, hasClicked: false },
-  { id: 3, hasClicked: false },
-  { id: 4, hasClicked: false },
-  { id: 5, hasClicked: false },
-  { id: 6, hasClicked: false },
-  { id: 7, hasClicked: false },
-  { id: 8, hasClicked: false },
-  { id: 9, hasClicked: false },
-  { id: 10, hasClicked: false },
-  { id: 11, hasClicked: false },
-  { id: 12, hasClicked: false },
-  { id: 13, hasClicked: false },
-  { id: 14, hasClicked: false },
-  { id: 15, hasClicked: false },
-  { id: 16, hasClicked: false },
-  { id: 17, hasClicked: false },
-  { id: 18, hasClicked: false },
-  { id: 19, hasClicked: false },
-  { id: 20, hasClicked: false },
+const cards = [
+  { id: 1, key: 'A' },
+  { id: 2, key: 'U' },
+  { id: 3, key: 'K' },
+  { id: 4, key: 'R' },
+  { id: 5, key: 'K' },
+  { id: 6, key: 'U' },
+  { id: 7, key: 'A' },
+  { id: 8, key: 'R' },
 ];
 
+const getRandomInt = (max) => Math.floor(Math.random() * max) + 1;
 const game_time = 120;
+const keys = ['A', 'U', 'K', 'R', '5', 'S', 'P', 'W', 'Q', 'F'];
 
 export const MemoryGame = () => {
-  const [gameFields, setGameFields] = useState(fields);
-  const [time, setTime] = useState(game_time);
   const [isGameStarted, setIsGameStarted] = useState(false);
+  const [gameCards, setgameCards] = useState(cards);
+  const [initialTime, setInitialTime] = useState(game_time);
+  const [isGameEnded, setGameEnded] = useState(false);
+  const [time, setTime] = useState(game_time);
   const [score, setScore] = useState(0);
-  const [isGameEnded, setIsGameEnded] = useState(false);
-
   const handleStartGame = () => {
+    setTime(game_time);
+    setScore(0);
     setIsGameStarted(true);
   };
 
-  const handleStopGame = () => {};
+  const handleStopGame = () => {
+    setIsGameStarted(false);
+  };
+
+  function shuffleArray(s) {
+    for (let i = s.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [s[i], s[j]] = [s[j], s[i]];
+    }
+    return s;
+  }
+  function handleClick(id) {}
 
   return (
     <div className="memory-game">
       <h2>
-        Gra polegająca na podążaniu za krecikiem i trafieniu na kwadrat, w
-        którym się pojawił.
+        Gra polegająca na zapamiętywaniu odkrytych kafli i łączeniu ich w pary
       </h2>
 
       {isGameStarted ? (
         <div>
-          <div>
-            {/* CZAS do końca  */}
-            <div className="option-wrapper">
-              <div className="title">Czas do końca</div>
-              <div className="content">
-                <button disabled={true}>{time}</button>
-              </div>
-            </div>
-
-            {/* WYNIK */}
-            <div className="option-wrapper">
-              <div className="title">Wynik</div>
-              <div className="content">
-                <button disabled={true}>{score}</button>
-              </div>
-            </div>
-
-            {/* PRZYCISKI STERUJĄCE */}
-            <div className="option-wrapper">
-              <div className="title">Przyciski sterujące</div>
-              <div className="content">
-                <button className="stop" onClick={handleStopGame}>
-                  Stop
-                </button>
-              </div>
+          {/* CZAS do końca  */}
+          <div className="option-wrapper">
+            <div className="title">Czas do końca</div>
+            <div className="content">
+              <button disabled={true}>{time}</button>
             </div>
           </div>
 
-          {/* WIDOK ŁAPANIA KRETA */}
-          <div className="field">
-            {gameFields.map((field) => {
-              return (
-                <div className="field">
-                  <h2>A</h2>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      ) : (
-        <div className="memory-game">
-          {isGameEnded && (
-            <div className="game-over">
-              Gratulacje, zdobyłeś {score} punktów
+          {/* WYNIK */}
+          <div className="option-wrapper">
+            <div className="title">Wynik</div>
+            <div className="content">
+              <button disabled={true}>{score}</button>
             </div>
-          )}
+          </div>
+
+          {/* PRZYCISKI STERUJĄCE */}
+          <div className="option-wrapper">
+            <div className="title">Przyciski sterujące</div>
+            <div className="content">
+              <button className="stop" onClick={handleStopGame}>
+                Stop
+              </button>
+            </div>
+          </div>
+
+          {/* WIDOK gry memo  */}
+          {/*  */}
+          <div className="board">
+            {gameCards.map((item, index) => (
+              <div className={'card'} onClick={() => handleClick(item.id)}>
+                {item.key}
+              </div>
+            ))}
+          </div>
+
+          <div className="game-over">Gratulacje, zdobyłeś {score} punktów</div>
+
           {/* CZAS gry */}
           <div className="option-wrapper">
             <div className="title">Czas gry</div>
@@ -118,6 +109,32 @@ export const MemoryGame = () => {
             <div className="title">Przyciski sterujące</div>
             <div className="content">
               <button onClick={handleStartGame}>PASS</button>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div className="option-wrapper">
+            {/* LICZBA ELEMENTÓW */}
+
+            <div>
+              <div className="content">
+                <div className="title">LICZBA ELEMENTÓW</div>
+                <button class>8 elementów</button>
+                <button class>16 elementów</button>
+                <button class>20 elementów</button>
+              </div>
+            </div>
+
+            {/* PRZYCISKI STERUJĄCE */}
+            <div className="option-wrapper">
+              <div>
+                <div className="content">
+                  <div className="title">PRZYCISKI STERUJĄCE</div>
+
+                  <button onClick={handleStartGame}>Start</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
