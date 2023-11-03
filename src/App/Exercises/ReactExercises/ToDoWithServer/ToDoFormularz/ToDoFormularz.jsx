@@ -4,8 +4,6 @@ import toggleArrow from '../../../../Images/toggle-arrow.svg';
 import { ToDoWithServer } from '../ToDoWithServer';
 
 export const ToDoFormularz = () => {
-  const [data, setData] = useState([]);
-
   const [IsSaveDataClicked, setIsSaveDataClicked] = useState(false);
   const [IsMovedBackClicked, setIsMovedBackClicked] = useState(false);
   const handleSaveData = () => {

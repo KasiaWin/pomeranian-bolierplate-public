@@ -9,7 +9,9 @@ import trashIcon from '../../../Images/trash.svg';
 
 export const ToDoWithServer = () => {
   const [data, setData] = useState([]);
+  const [IsLoadData, setIsLoadData] = useState(false);
   const handleLoadData = () => {
+    setIsLoadData(true)
     fetch('http://localhost:3333/api/todo')
       .then((response) => {
         return response.json();
@@ -41,16 +43,22 @@ export const ToDoWithServer = () => {
 
       <h3>
         Tu znajdziesz listę swoich zadań{' '}
-        <button className="plusButton">+</button>
+        <button className="dodajButton" onClick={handleLoadData}>
+        +
+      </button>
       </h3>
+      
       <ul className="toDoList">
         {data?.map((todo) => {
           return (
-            <li>
+            <div>
+               { IsLoadData ? (
+
+               <li>
               <div>{todo.title}</div>
               <div>{todo.author}</div>
               <div>{todo.note}</div>
-              <div className="Icons">
+              <div className="Icons-wrapper">
                 <img
                   src={tickIcon}
                   className="tickimg"
@@ -68,16 +76,23 @@ export const ToDoWithServer = () => {
                 />
               </div>
             </li>
-          );
-        })}
+            
+   
+</div> 
+
+
+        );})}
       </ul>
 
-      <div>----------------------</div>
+     
 
       <button className="dodajButton" onClick={handleLoadData}>
         Dodaj
       </button>
+      ) : ( 
+<div>
       <ToDoFormularz />
+    
     </div>
-  );
-};
+  );</div>
+)};
