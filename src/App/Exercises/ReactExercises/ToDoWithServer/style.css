@@ -51,8 +51,9 @@ align-items: center;
 gap: 8.286px;
 flex-shrink: 0;
 }
-.toDoList {
+.toDoList-wrapper {
   display: flex;
+  flex-direction: column;
   width: 629px;
   height: 166px;
   padding: 18px 24px;
@@ -60,7 +61,7 @@ flex-shrink: 0;
   gap: 16px;
   cursor: pointer;
   }
- .toDoList:hover{
+ .toDoList-wrapper:hover{
   background-color: #C8CBD1;
  }
   .toDoList {

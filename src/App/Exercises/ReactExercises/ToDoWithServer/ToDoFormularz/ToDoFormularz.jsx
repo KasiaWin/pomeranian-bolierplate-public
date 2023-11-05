@@ -40,15 +40,20 @@ export const ToDoFormularz = () => {
         </div>
       </ul>
 
-      <div>----------------------</div>
+      {/* <div>
+        <input type="checkbox" id="scales" name="scales" checked />
+        <label for="scales">Scales</label>
+      </div> */}
+      <div className="saveButton-wrapper">
+        <button className="saveButton" onClick={handleSaveData}>
+          {' '}
+          ZAPISZ
+        </button>
+        <button className="moveBackButton" onClick={handleMoveBack}>
+          COFNIJ
+        </button>
+      </div>
 
-      <button className="saveButton" onClick={handleSaveData}>
-        {' '}
-        ZAPISZ
-      </button>
-      <button className="moveBackButton" onClick={handleMoveBack}>
-        COFNIJ
-      </button>
       {/* <ToDoWithServer /> */}
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './style.css';
 import toggleArrow from '../../../Images/toggle-arrow.svg';
 import { ToDoFormularz } from '../ToDoWithServer/ToDoFormularz/ToDoFormularz';
@@ -9,9 +9,10 @@ import trashIcon from '../../../Images/trash.svg';
 
 export const ToDoWithServer = () => {
   const [data, setData] = useState([]);
-  const [IsLoadData, setIsLoadData] = useState(false);
+  const [isLoadData, setIsLoadData] = useState(false);
+
   const handleLoadData = () => {
-    setIsLoadData(true)
+    setIsLoadData(true);
     fetch('http://localhost:3333/api/todo')
       .then((response) => {
         return response.json();
@@ -23,12 +24,6 @@ export const ToDoWithServer = () => {
         console.log(err, 'err');
       });
   };
-
-  //   console.log(
-  //     obj && obj.noteDetails && obj.noteDetails.author && obj.noteDetails.author
-  //   );
-
-  //   console.log(obj.noteDetails?.author?.length && obj.noteDetails.author);
 
   return (
     <div>
@@ -43,18 +38,15 @@ export const ToDoWithServer = () => {
 
       <h3>
         Tu znajdziesz listę swoich zadań{' '}
-        <button className="dodajButton" onClick={handleLoadData}>
-        +
-      </button>
+        <button className="plusButton" onClick={handleLoadData}>
+          +
+        </button>
       </h3>
-      
-      <ul className="toDoList">
-        {data?.map((todo) => {
-          return (
-            <div>
-               { IsLoadData ? (
 
-               <li>
+      {isLoadData ? (
+        <ul className="toDoList-wrapper">
+          {data?.map((todo, index) => (
+            <li key={index}>
               <div>{todo.title}</div>
               <div>{todo.author}</div>
               <div>{todo.note}</div>
@@ -76,23 +68,16 @@ export const ToDoWithServer = () => {
                 />
               </div>
             </li>
-            
-   
-</div> 
-
-
-        );})}
-      </ul>
-
-     
-
-      <button className="dodajButton" onClick={handleLoadData}>
-        Dodaj
-      </button>
-      ) : ( 
-<div>
-      <ToDoFormularz />
-    
+          ))}
+        </ul>
+      ) : (
+        <div>
+          <button className="dodajButton" onClick={handleLoadData}>
+            Dodaj
+          </button>
+          {!isLoadData && <ToDoFormularz />}
+        </div>
+      )}
     </div>
-  );</div>
-)};
+  );
+};
