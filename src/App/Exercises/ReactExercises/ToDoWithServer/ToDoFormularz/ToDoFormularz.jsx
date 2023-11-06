@@ -28,10 +28,11 @@ export const ToDoFormularz = () => {
       </h2>
 
       <h4>Edycja zadania </h4>
-      <ul className="toDoList">
+      <ul className="toDoListSecondScreen">
         <div>
           <h3>Tytuł</h3>
           <input className="title" title="Szczepienie kitku" />
+
           <h3>Treść</h3>
           <input
             className="tresc"
@@ -52,6 +53,7 @@ export const ToDoFormularz = () => {
         <button className="moveBackButton" onClick={handleMoveBack}>
           COFNIJ
         </button>
+        {!IsMovedBackClicked && <ToDoWithServer />}
       </div>
 
       {/* <ToDoWithServer /> */}

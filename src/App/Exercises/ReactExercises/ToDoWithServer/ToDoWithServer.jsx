@@ -23,6 +23,9 @@ export const ToDoWithServer = () => {
       .catch((err) => {
         console.log(err, 'err');
       });
+    const handleLoadData = () => {
+      setIsLoadData(false);
+    };
   };
 
   return (
@@ -38,9 +41,9 @@ export const ToDoWithServer = () => {
 
       <h3>
         Tu znajdziesz listę swoich zadań{' '}
-        <button className="plusButton" onClick={handleLoadData}>
+        {/* <button className="plusButton" onClick={handleLoadData}>
           +
-        </button>
+        </button> */}
       </h3>
 
       {isLoadData ? (
@@ -75,9 +78,11 @@ export const ToDoWithServer = () => {
           <button className="dodajButton" onClick={handleLoadData}>
             Dodaj
           </button>
-          {!isLoadData && <ToDoFormularz />}
+          {/* {!isLoadData && <ToDoFormularz />} */}
         </div>
       )}
     </div>
   );
 };
+
+//  <button onClick={handleStopGame}>Stop</button>
