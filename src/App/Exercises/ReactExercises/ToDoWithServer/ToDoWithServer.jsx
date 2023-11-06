@@ -2,31 +2,33 @@ import { useState, useEffect } from 'react';
 import './style.css';
 import toggleArrow from '../../../Images/toggle-arrow.svg';
 import { ToDoFormularz } from '../ToDoWithServer/ToDoFormularz/ToDoFormularz';
+import { Button } from './Button/button';
 
 import tickIcon from '../../../Images/tick.svg';
 import pencilIcon from '../../../Images/pencil.svg';
 import trashIcon from '../../../Images/trash.svg';
+import { Diversity1 } from '@mui/icons-material';
 
 export const ToDoWithServer = () => {
   const [data, setData] = useState([]);
-  const [isLoadData, setIsLoadData] = useState(false);
+  const [formVisible, setFormVisible] = useState(false);
 
   const handleLoadData = () => {
-    setIsLoadData(true);
-    fetch('http://localhost:3333/api/todo')
-      .then((response) => {
-        return response.json();
-      })
+    requestHandler('GET')
       .then((data) => {
         setData(data);
       })
       .catch((err) => {
         console.log(err, 'err');
       });
-    const handleLoadData = () => {
-      setIsLoadData(false);
-    };
   };
+  const handleForm = () => {
+    setFormVisible(!formVisible);
+  };
+
+  useEffect(() => {
+    handleLoadData();
+  }, []);
 
   return (
     <div>
@@ -38,48 +40,55 @@ export const ToDoWithServer = () => {
         />
         TODO
       </h2>
+      {formVisible && (
+        <ToDoFormularz
+          editedItem={editedItem}
+          setEditedItem={setEditedItem}
+          getData={handleLoadData}
+          handleFormVisibilty={handleForm}
+        />
+      )}
+      {!formVisible && (
+        <>
+          <div>
+            Tu znajdziesz listę swoich zadań{' '}
+            <button onClick={handleForm}>+</button>
+          </div>
+          <ul className="toDoList-wrapper">
+            {data?.map(({ id, title, author, note, doneDate = '', isDone }) => (
+              <ToDoItem
+                id={id}
+                title={title}
+                author={author}
+                note={note}
+                doneDate={doneDate}
+                isDone={isDone}
+                getData={handleLoadData}
+                handleForm={handleForm}
+                setEditedItem={setEditedItem}
+              />
+            ))}
+          </ul>
+          <div className="icon-wrapper">
+            <img
+              src={tickIcon}
+              className="tickimg"
+              alt="Tu powinien być obrazek"
+            />
+            <img
+              src={pencilIcon}
+              className="pencilimg"
+              alt="Tu powinien być obrazek"
+            />
+            <img
+              src={trashIcon}
+              className="trashimg"
+              alt="Tu powinien być obrazek"
+            />
+          </div>
 
-      <h3>
-        Tu znajdziesz listę swoich zadań{' '}
-        {/* <button className="plusButton" onClick={handleLoadData}>
-          +
-        </button> */}
-      </h3>
-
-      {isLoadData ? (
-        <ul className="toDoList-wrapper">
-          {data?.map((todo, index) => (
-            <li key={index}>
-              <div>{todo.title}</div>
-              <div>{todo.author}</div>
-              <div>{todo.note}</div>
-              <div className="Icons-wrapper">
-                <img
-                  src={tickIcon}
-                  className="tickimg"
-                  alt="Tu powinien być obrazek"
-                />
-                <img
-                  src={pencilIcon}
-                  className="pencilimg"
-                  alt="Tu powinien być obrazek"
-                />
-                <img
-                  src={trashIcon}
-                  className="trashimg"
-                  alt="Tu powinien być obrazek"
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <div>
-          <button className="dodajButton" onClick={handleLoadData}>
-            Dodaj
-          </button>
-          {/* {!isLoadData && <ToDoFormularz />} */}
-        </div>
+          <button onClick={handleForm}>Dodaj</button>
+        </>
       )}
     </div>
   );

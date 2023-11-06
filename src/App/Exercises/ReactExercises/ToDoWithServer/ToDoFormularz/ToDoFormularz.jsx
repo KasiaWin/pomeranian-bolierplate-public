@@ -6,6 +6,8 @@ import { ToDoWithServer } from '../ToDoWithServer';
 export const ToDoFormularz = () => {
   const [IsSaveDataClicked, setIsSaveDataClicked] = useState(false);
   const [IsMovedBackClicked, setIsMovedBackClicked] = useState(false);
+  const [IsTitleAdded, setIsTitleAdded] = useState([{ title: '' }]);
+  const [IsTrescAdded, setIsTrescAdded] = useState([{ tresc: '' }]);
   const handleSaveData = () => {
     setIsSaveDataClicked(true);
     setIsMovedBackClicked(false);
@@ -31,12 +33,12 @@ export const ToDoFormularz = () => {
       <ul className="toDoListSecondScreen">
         <div>
           <h3>Tytuł</h3>
-          <input className="title" title="Szczepienie kitku" />
+          <input className="title" placeholder="Szczepienie kitku" />
 
           <h3>Treść</h3>
           <input
             className="tresc"
-            tresc="Sprawdzić w książeczce zdrowia, kiedy Nala była ostatni raz szczepiona i umówić się z naszym weterynarzem. Dodatkowo pamiętać o ustaleniu drugiej wizyty za rok!!!"
+            placeholder="Sprawdzić w książeczce zdrowia, kiedy Nala była ostatni raz szczepiona i umówić się z naszym weterynarzem. Dodatkowo pamiętać o ustaleniu drugiej wizyty za rok!!!"
           />
         </div>
       </ul>
@@ -50,10 +52,14 @@ export const ToDoFormularz = () => {
           {' '}
           ZAPISZ
         </button>
-        <button className="moveBackButton" onClick={handleMoveBack}>
+        <button
+          className="moveBackButton"
+          onClick={handleMoveBack}
+          type="secondary"
+        >
           COFNIJ
         </button>
-        {!IsMovedBackClicked && <ToDoWithServer />}
+        {/* {!IsMovedBackClicked && <ToDoWithServer loadData={handleMoveBack} />} */}
       </div>
 
       {/* <ToDoWithServer /> */}
