@@ -1,4 +1,4 @@
-/* .font-test-family {
+.font-test-family {
   font-family: Chilanka;
 
 }
@@ -59,19 +59,19 @@ flex-shrink: 0;
  .toDoList-wrapper:hover{
   background-color: #C8CBD1;
  }
-  .toDoList {
+  .toDoList-wrapper {
     border-radius: 8px;
     border-left: 5px solid var(--gray-300, #C8CBD1);
     background: var(--background-bg-primary, #FFF);
 box-shadow: 0px 3px 9px 0px rgba(0, 0, 0, 0.15), 0px 2px 28px 0px rgba(0, 0, 0, 0.12);
   }
  
-.dodajButton {
+.button {
   border-radius: 8px;
 border: 1px solid var(--primary-primary, #FE3756);
 background: var(--primary-primary, #FE3756);
 }
-.dodajButton{
+.button {
   color: #FFF;
   text-align: center;
   font-family: Poppins;
@@ -81,7 +81,7 @@ background: var(--primary-primary, #FE3756);
   line-height: 31px; 
 cursor: pointer;
 }
-.dodajButton {
+.button {
 display: flex;
 
 height: 56px;
@@ -93,4 +93,4 @@ flex: 1 0 0;
 }
 .faqimg {
   rotate: 90deg;
-} */
+} 

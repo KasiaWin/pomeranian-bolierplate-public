@@ -2,15 +2,12 @@ import { useState, useEffect } from 'react';
 import './style.css';
 import toggleArrow from '../../../Images/toggle-arrow.svg';
 import { ToDoFormularz } from '../ToDoWithServer/ToDoFormularz/ToDoFormularz';
-import { Button } from './Button/button';
-
-import tickIcon from '../../../Images/tick.svg';
-import pencilIcon from '../../../Images/pencil.svg';
-import trashIcon from '../../../Images/trash.svg';
-import { Diversity1 } from '@mui/icons-material';
+import { ToDoItem } from './ToDoItem';
+import { requestHandler } from '../ToDoWithServer/helpers';
 
 export const ToDoWithServer = () => {
   const [data, setData] = useState([]);
+  const [editedItem, setEditedItem] = useState(null);
   const [formVisible, setFormVisible] = useState(false);
 
   const handleLoadData = () => {
@@ -69,23 +66,6 @@ export const ToDoWithServer = () => {
               />
             ))}
           </ul>
-          <div className="icon-wrapper">
-            <img
-              src={tickIcon}
-              className="tickimg"
-              alt="Tu powinien być obrazek"
-            />
-            <img
-              src={pencilIcon}
-              className="pencilimg"
-              alt="Tu powinien być obrazek"
-            />
-            <img
-              src={trashIcon}
-              className="trashimg"
-              alt="Tu powinien być obrazek"
-            />
-          </div>
 
           <button onClick={handleForm}>Dodaj</button>
         </>
