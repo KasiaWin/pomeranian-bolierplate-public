@@ -9,14 +9,17 @@ export const ToDoWithServer = () => {
   const [data, setData] = useState([]);
   const [editedItem, setEditedItem] = useState(null);
   const [formVisible, setFormVisible] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleLoadData = () => {
+    console.log('triggered...?');
+    setError(null);
     requestHandler('GET')
       .then((data) => {
         setData(data);
       })
       .catch((err) => {
-        console.log(err, 'err');
+        setError('Nie udało się pobrać listy zadań');
       });
   };
   const handleForm = () => {
@@ -49,11 +52,14 @@ export const ToDoWithServer = () => {
         <>
           <div>
             Tu znajdziesz listę swoich zadań{' '}
-            <button onClick={handleForm}>+</button>
+            <button className="plusButton" onClick={handleForm}>
+              +
+            </button>
           </div>
           <ul className="toDoList-wrapper">
             {data?.map(({ id, title, author, note, doneDate = '', isDone }) => (
               <ToDoItem
+                key={id}
                 id={id}
                 title={title}
                 author={author}
@@ -68,6 +74,7 @@ export const ToDoWithServer = () => {
           </ul>
 
           <button onClick={handleForm}>Dodaj</button>
+          {error && <div>{error}</div>}
         </>
       )}
     </div>
