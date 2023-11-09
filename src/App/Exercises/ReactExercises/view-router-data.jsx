@@ -4,11 +4,17 @@ import { SubRouteExampleMetaData } from './SubRouteExample/router-data';
 import { hitTheMoleMetaData } from './HitTheMole/router-data';
 import { memoryGameMetaData } from './MemoryGame/router-data';
 import { toDoWithServerMetaData } from './ToDoWithServer/router-data';
+import { formsMetaData } from './Forms/router-data';
+import { basicReactHookFormsMetaData } from './BasicReactHookForms/router-data';
+import { orderFormMetaData } from './OrderForm/router-data';
 
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   hitTheMoleMetaData,
   memoryGameMetaData,
   toDoWithServerMetaData,
+  formsMetaData,
+  basicReactHookFormsMetaData,
+  orderFormMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
