@@ -37,6 +37,8 @@ export const OrderForm = () => {
       mail: '',
       paymentMethod: '',
       agreements: false,
+      password: '56ggW457hh#$',
+      rulesAcceptance: 'Pole obowiązkowe!',
     },
     resolver: yupResolver(schema),
   });
@@ -60,73 +62,112 @@ export const OrderForm = () => {
         </h2>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register('example')} />
-
+        {/* <input {...register('example')} />
         <input
           aria-invalid={errors.exampleRequired ? 'true' : 'false'}
           {...register('exampleRequired')}
         />
         {errors.exampleRequired && (
           <p role="alert">{errors.exampleRequired.message}</p>
-        )}
-        <h2>ZAMÓWIENIE PRODUKTU</h2>
-        <h3>Wybierz produkt*</h3>
-        <select {...register('course')}>
-          <option value="kursFe">kurs front-end</option>
-          <option value="other">other</option>
-        </select>
+        )} */}
+        <div className="container">
+          <div className="orderProduct">
+            <h2>ZAMÓWIENIE PRODUKTU</h2>
+            <h3>Wybierz produkt*</h3>
+            <select {...register('course')}>
+              <option value="kursFe">kurs front-end</option>
+              <option value="other">other</option>
+            </select>
+            <div>
+              <h3>Wybierz formę płatności*</h3>
+              <div className="payment">
+                <label>
+                  <input
+                    type="radio"
+                    value="blik"
+                    {...register('paymentMethod')}
+                  />
+                  blik
+                </label>
 
-        <div>
-          <h3>Wybierz formę płatności*</h3>
-          <div>
-            <input type="radio" value="blik" {...register('paymentMethod')} />
-            blik
+                <label>
+                  <input
+                    type="radio"
+                    value="przelew"
+                    {...register('paymentMethod')}
+                  />
+                  przelew tradycyjny
+                </label>
+
+                <label>
+                  <input
+                    type="radio"
+                    value="paypal"
+                    {...register('paymentMethod')}
+                  />
+                  paypal
+                </label>
+              </div>
+            </div>
+            <h3>Opcje dodatkowe do zamówienia</h3>
+            <div className="payment1">
+              <input type="checkbox" {...register('agreements')} />
+              <label>ustawienia środowiska</label>
+              <input type="checkbox" {...register('agreements')} />
+              <label>intro do GitHub</label>
+              <input type="checkbox" {...register('agreements')} />
+              <label>materiały dodatkowe</label>
+            </div>
           </div>
-          <div>
+          <div className="orderProduct">
+            <h2>DANE DO REALIZACJI ZAMÓWIENIA</h2>
+            <h3>Imię i nazwisko*</h3>
+            <input {...register('example')} />
+            <h3>Twój pseudonim*</h3>
             <input
-              type="radio"
-              value="przelew"
-              {...register('paymentMethod')}
+              aria-invalid={errors.exampleRequired ? 'true' : 'false'}
+              {...register('exampleRequired')}
             />
-            przelew tradycyjny
+            <h3>Adres do wysyłki*</h3>
+            <input {...register('address')} />
+            <h3>Adres e-mail*</h3>
+            <input {...register('email')} />
+            <h3>Numer kontaktowy*</h3>
+            <input {...register('phone')} />
+            <h3>Dodatkowe uwagi do zamówienia*</h3>
+            <input {...register('addInfo')} />
+            {errors.mail && <p role="alert">{errors.mail.message}</p>}
           </div>
-          <div>
-            <input type="radio" value="paypal" {...register('paymentMethod')} />
-            paypal
+          <div className="orderProduct">
+            <h2>ZAKŁADANIE KONTA</h2>
+            <h3>Chcę założyć konto razem z zamówieniem</h3>
+            <div className="payment">
+              <input type="checkbox" {...register('agreements')} />
+              zakładam konto
+            </div>
+            <h3>Moje hasło</h3>
+            <input {...register('password')} />
+            <h3>Powtórz hasło</h3>
+            <input {...register('password')} />
           </div>
+          <div className="orderProduct">
+            <h2>ZGODY I NEWSLETTER</h2>
+            <h3>Realizując zamówienie, akceptujesz regulamin naszego sklepu</h3>
+            <div className="payment">
+              <input type="checkbox" {...register('agreements')} />
+              <label>akceptuję regulamin*</label>
+            </div>
+            <h3>
+              Dołącz do naszego newslettera z promocjami dla naszych klientów
+            </h3>
+            <div className="payment">
+              <input type="checkbox" {...register('agreements')} />
+              <label>zapisuję się na listę mailingową</label>
+            </div>
+          </div>
+          {/* <input type="submit" /> */}
+          <button>Składam zamówienie</button>
         </div>
-
-        <div>
-          <h3>Opcje dodatkowe do zamówienia</h3>
-          <input type="checkbox" {...register('agreements')} />
-          ustawienia środowiska
-          <input type="checkbox" {...register('agreements')} />
-          intro do GitHub
-          <input type="checkbox" {...register('agreements')} />
-          materiały dodatkowe
-        </div>
-        {errors.agreements && <p role="alert">{errors.agreements.message}</p>}
-        <h2>DANE DO REALIZACJI ZAMÓWIENIA</h2>
-        <h3>Imię i nazwisko*</h3>
-        <input {...register('example')} />
-        <h3>Twój pseudonim*</h3>
-        <input {...register('exampleRequired')} />
-        <h3>Adres do wysyłki*</h3>
-        <input {...register('address')} />
-        <h3>Adres e-mail*</h3>
-        <input {...register('email')} />
-        <h3>Numer kontaktowy*</h3>
-        <input {...register('phone')} />
-        <h3>Dodatkowe uwagi do zamówienia*</h3>
-        <input {...register('addInfo')} />
-        <input
-          aria-invalid={errors.mail ? 'true' : 'false'}
-          {...register('mail')}
-        />
-        {errors.mail && <p role="alert">{errors.mail.message}</p>}
-
-        {/* <input type="submit" /> */}
-        <button>Składam</button>
       </form>
     </div>
   );

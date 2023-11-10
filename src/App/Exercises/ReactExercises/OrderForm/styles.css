@@ -1,3 +1,117 @@
 input[aria-invalid='true'] {
   border: 5px solid red;
 }
+.container {
+  width: 801px;
+  height: 2539px;
+  flex-shrink: 0;
+  border-radius: 16px;
+background: var(--gray-80, #F4F5F7);
+
+/* xl */
+box-shadow: 0px 65px 30px 0px rgba(0, 0, 0, 0.01), 0px 8px 20px 0px rgba(0, 0, 0, 0.04), 0px 17px 35px 0px rgba(0, 0, 0, 0.05), 0px -4px 26px 0px rgba(0, 0, 0, 0.08);
+width: 801px;
+height: 2539px;
+flex-shrink: 0;
+margin-left: 82px;
+}
+.orderProduct {
+  display: flex;
+  flex-direction: column;
+  margin-top: 65px;
+  margin-left: 82px;
+  margin-bottom: 77px;
+  margin-right: 231px;
+}
+select {
+  display: flex;
+height: 48px;
+padding: 13px 16px;
+align-items: center;
+gap: 10px;
+align-self: stretch;
+color: var(--gray-500, #999);
+font-family: Poppins;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 32px; /* 177.778% */
+}
+input[type] {
+  width: 24px;
+height: 24px;
+
+}
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.payment1 {
+  display: flex;
+  ;
+}
+input:checked {
+  fill: var(--primary-primary, #FE3756);
+stroke-width: 1px;
+stroke: var(--primary-primary-dark, #FE5407);
+}
+h3 {
+  color: var(--text-text-primary, #222);
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 27px; /* 168.75% */
+}
+h2 {
+  color: var(--text-text-primary, #222);
+font-family: Poppins;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: 27px; /* 122.727% */
+}
+input {
+  display: flex;
+  height: 48px;
+  padding: 13px 16px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 5px;
+border: 1px solid var(--grey-300, #C8CBD1);
+background: #FFF;
+}
+input {
+  color: var(--gray-500, #999);
+font-family: Poppins;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 32px; /* 177.778% */
+}
+button {
+  display: flex;
+
+height: 56px;
+padding: 20px 36px;
+justify-content: center;
+align-items: center;
+gap: 16px;
+flex: 1 0 0;
+border-radius: 8px;
+border: 1px solid var(--primary-primary, #FE3756);
+background: var(--primary-primary, #FE3756);
+}
+button {
+  color: #FFF;
+text-align: center;
+
+/* button/button */
+font-family: Poppins;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 31px; /* 172.222% */
+}
