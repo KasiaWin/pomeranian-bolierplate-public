@@ -4,11 +4,13 @@ import { SubRouteExampleMetaData } from './SubRouteExample/router-data';
 import { hitTheMoleMetaData } from './HitTheMole/router-data';
 import { memoryGameMetaData } from './MemoryGame/router-data';
 import { toDoWithServerMetaData } from './ToDoWithServer/router-data';
+import { reactFirebaseMetaData } from './ReactFirebase/router-data';
 
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   hitTheMoleMetaData,
   memoryGameMetaData,
   toDoWithServerMetaData,
+  reactFirebaseMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
