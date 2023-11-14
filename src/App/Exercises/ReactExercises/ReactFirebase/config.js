@@ -4,14 +4,14 @@ import { initializeApp } from 'firebase/app';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+console.log(process.env, 'check');
 const firebaseConfig = {
-  apiKey: 'AIzaSyANeUB21k7q2NzZMy98W3KDa0Qsd4FRJCg',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: 'pomeranian-743b0.firebaseapp.com',
   projectId: 'pomeranian-743b0',
   storageBucket: 'pomeranian-743b0.appspot.com',
-  messagingSenderId: '581214640259',
-  appId: '1:581214640259:web:5052539f78d16021b1e3b6',
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
-
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
